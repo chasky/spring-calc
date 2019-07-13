@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t chasky/spring-calc:${env.BUILD_NUMBER}
+docker build -t chasky/spring-calc

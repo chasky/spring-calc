@@ -10,4 +10,5 @@ if [ $? != 0 ]; then
 fi
 
 sleep 5s
-curl http://localhost:8181/greeting?name=Rex
+
+curl -k http://localhost:8181/greeting?name=Rex

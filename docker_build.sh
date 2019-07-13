@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t mario21ic/spring-calc .
+docker build -t chasky/spring-calc:${env.BUILD_NUMBER}

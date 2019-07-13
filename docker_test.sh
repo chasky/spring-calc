@@ -1,15 +1,19 @@
+#!/bin/bash
+# usage: tag_number
+
+CONTAINER_NAME="rex"
+
 docker rm -f rex
 
-docker run --name=rex -d -p 8181:8080 chasky/spring-calc:$1
+docker run --name=$CONTAINER_NAME -d -p 8181:8080 chasky/spring-calc:$1
 if [ $? != 0 ]; then
   exit 1
 fi
 
-#until $(curl --output /dev/null --silent --head --fail http://localhost:8181/greeting?name=Rex); do
-#    printf '.'
-    sleep 5
-#done
+echo "Waiting for port 8181"
+while ! netcat -z localhost 8181; do sleep 5; done
 
+sleep 20
 
-curl -I http://localhost:8181/greeting?name=Rex
-docker rm -f rex
+curl  http://localhost:8181/greeting?name=Rex
+docker rm -f $CONTAINER_NAME

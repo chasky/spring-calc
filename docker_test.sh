@@ -3,7 +3,7 @@
 
 CONTAINER_NAME="rex"
 
-docker rm -f rex
+docker rm -f $CONTAINER_NAME
 
 docker run --name=$CONTAINER_NAME -d -p 8181:8080 chasky/spring-calc:$1
 if [ $? != 0 ]; then

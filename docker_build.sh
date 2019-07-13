@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t chasky/spring-calc .
+docker build -t chasky/spring-calc:$1 .

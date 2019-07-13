@@ -2,9 +2,9 @@
 
 docker build -t chasky/spring-calc:$1 .
 
-#docker rm -f rex
+docker rm -f rex
 
-#docker run --name=rex -d -p 8181:8080 chasky/spring-calc:$1
+docker run --name=rex -d -p 8181:8080 chasky/spring-calc:$1
 #if [ $? != 0 ]; then
 #  exit 1
 #fi

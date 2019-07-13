@@ -9,6 +9,7 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-sleep 5s
-
-curl -k http://localhost:8181/greeting?name=Rex
+until $(curl --output /dev/null --silent --head --fail http://localhost:8181/greeting?name=Rex); do
+    printf '.'
+    sleep 5
+done

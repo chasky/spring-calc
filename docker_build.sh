@@ -9,4 +9,5 @@ if [ $? != 0 ]; then
   exit 1
 fi
 
-sleep 5 && curl http://localhost:8181/greeting?name=Rex
+sleep 5s
+curl http://localhost:8181/greeting?name=Rex

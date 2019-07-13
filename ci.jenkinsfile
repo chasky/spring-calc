@@ -42,5 +42,13 @@ pipeline {
         sh "rm -f ${ARTIFACT}"
       }
     }
+
+    stage ('Test Image') {
+      steps {
+        sh "./docker_test.sh ${env.BUILD_NUMBER}"
+        archiveArtifacts artifacts: "${env.ARTIFACT}", onlyIfSuccessful: true
+        sh "rm -f ${ARTIFACT}"
+      }
+    }
   }
 }

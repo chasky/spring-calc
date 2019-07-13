@@ -44,12 +44,16 @@ pipeline {
     }
 
     stage ('Test Image') {
-      steps {
+            steps {
         sh "./docker_test.sh ${env.BUILD_NUMBER}"
       }
     }
 
     stage ('DockerHub') {
+      when {
+        expression { 
+          return.params.DEPLOY == 'TRUE' }
+      }
       steps {
         sh "./docker_deploy.sh ${env.BUILD_NUMBER}"
       }
